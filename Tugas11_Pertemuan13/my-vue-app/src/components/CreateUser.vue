@@ -1,0 +1,54 @@
+<template>
+  <div>
+    <h2 class="text-xl font-bold mb-4">Tambah Pengguna Baru</h2>
+    <form @submit.prevent="createUser">
+      <input v-model="name" placeholder="Nama" class="border px-2 py-1 mb-2 block" />
+      <input v-model="job" placeholder="Pekerjaan" class="border px-2 py-1 mb-2 block" />
+      <button type="submit" class="bg-blue-500 text-white px-4 py-1 rounded" :disabled="loading">
+        {{ loading ? 'Mengirim...' : 'Submit' }}
+      </button>
+    </form>
+
+    <div v-if="responseId" class="mt-4 text-green-600">
+      Pengguna berhasil dibuat! ID: {{ responseId }}
+    </div>
+    <div v-if="errorMsg" class="mt-4 text-red-600">
+      {{ errorMsg }}
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+
+const name = ref('')
+const job = ref('')
+const responseId = ref(null)
+const errorMsg = ref('')
+const loading = ref(false)
+
+const createUser = async () => {
+  errorMsg.value = ''
+  responseId.value = null
+  loading.value = true
+  try {
+    const res = await fetch('https://reqres.in/api/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name.value,
+        job: job.value
+      })
+    })
+    if (!res.ok) throw new Error('Gagal submit')
+    const data = await res.json()
+    responseId.value = data.id
+    name.value = ''
+    job.value = ''
+  } catch (err) {
+    errorMsg.value = 'Gagal membuat pengguna. Coba lagi.'
+  } finally {
+    loading.value = false
+  }
+}
+</script>
