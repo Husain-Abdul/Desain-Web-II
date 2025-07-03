@@ -20,8 +20,17 @@ const users = ref([])
 const router = useRouter()
 
 const getUsers = async () => {
-  const response = await axios.get('https://reqres.in/api/users')
-  users.value = response.data.data
+  try {
+    const response = await axios.get('https://reqres.in/api/users')
+    const apiUsers = response.data.data
+
+    const localUsers = JSON.parse(localStorage.getItem('newUsers') || '[]')
+
+    users.value = [...apiUsers, ...localUsers]
+  } catch (err) {
+    console.error('Gagal mengambil data pengguna:', err)
+    users.value = JSON.parse(localStorage.getItem('newUsers') || '[]') // fallback jika gagal
+  }
 }
 
 const goToDetail = (id) => {

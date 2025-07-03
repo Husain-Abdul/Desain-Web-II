@@ -31,6 +31,13 @@ const createUser = async () => {
   errorMsg.value = ''
   responseId.value = null
   loading.value = true
+
+  if (!name.value || !job.value) {
+    errorMsg.value = 'Nama dan pekerjaan wajib diisi'
+    loading.value = false
+    return
+  }
+
   try {
     const res = await fetch('https://reqres.in/api/users', {
       method: 'POST',
@@ -40,9 +47,28 @@ const createUser = async () => {
         job: job.value
       })
     })
+
+    console.log('Status code:', res.status)
+
     if (!res.ok) throw new Error('Gagal submit')
+
     const data = await res.json()
     responseId.value = data.id
+
+    // ✅ Simpan user ke localStorage setelah berhasil
+    const newUser = {
+      id: data.id,
+      first_name: name.value,
+      last_name: '',
+      email: `${name.value.toLowerCase()}@mail.com`,
+      avatar: 'https://i.pravatar.cc/150?u=' + data.id // avatar dummy
+    }
+
+    const savedUsers = JSON.parse(localStorage.getItem('newUsers') || '[]')
+    savedUsers.push(newUser)
+    localStorage.setItem('newUsers', JSON.stringify(savedUsers))
+
+    // Bersihkan input
     name.value = ''
     job.value = ''
   } catch (err) {
