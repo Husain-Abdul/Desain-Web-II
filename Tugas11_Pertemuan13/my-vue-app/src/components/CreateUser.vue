@@ -41,7 +41,7 @@ const createUser = async () => {
   try {
     const res = await fetch('https://reqres.in/api/users', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'x-api-key': 'reqres-free-v1' },
       body: JSON.stringify({
         name: name.value,
         job: job.value
@@ -55,7 +55,7 @@ const createUser = async () => {
     const data = await res.json()
     responseId.value = data.id
 
-    // ✅ Simpan user ke localStorage setelah berhasil
+    // Simpan user ke localStorage setelah berhasil
     const newUser = {
       id: data.id,
       first_name: name.value,

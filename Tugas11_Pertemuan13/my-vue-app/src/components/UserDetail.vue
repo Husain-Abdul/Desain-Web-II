@@ -17,10 +17,14 @@ const user = ref(null)
 
 const getUserDetail = async () => {
   try {
-    const response = await axios.get(`https://reqres.in/api/users/${route.params.id}`)
+    const response = await axios.get(`https://reqres.in/api/users/${route.params.id}`, {
+      headers: {
+        'x-api-key': 'reqres-free-v1' 
+      }
+    })
     user.value = response.data.data
   } catch (err) {
-    //  Fallback ambil dari localStorage jika user tidak ditemukan di API
+    // Fallback ke localStorage jika gagal ambil dari API
     const localUsers = JSON.parse(localStorage.getItem('newUsers') || '[]')
     user.value = localUsers.find(u => u.id == route.params.id)
   }

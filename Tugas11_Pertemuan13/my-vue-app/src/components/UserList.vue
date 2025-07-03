@@ -21,15 +21,18 @@ const router = useRouter()
 
 const getUsers = async () => {
   try {
-    const response = await axios.get('https://reqres.in/api/users')
+    const response = await axios.get('https://reqres.in/api/users', {
+      headers: {
+        'x-api-key': 'reqres-free-v1'
+      }
+    })
     const apiUsers = response.data.data
 
     const localUsers = JSON.parse(localStorage.getItem('newUsers') || '[]')
-
     users.value = [...apiUsers, ...localUsers]
   } catch (err) {
     console.error('Gagal mengambil data pengguna:', err)
-    users.value = JSON.parse(localStorage.getItem('newUsers') || '[]') // fallback jika gagal
+    users.value = JSON.parse(localStorage.getItem('newUsers') || '[]') // fallback jika API gagal
   }
 }
 
