@@ -48,7 +48,7 @@ const form = ref({
 const router = useRouter();
 
 const submitUser = async () => {
-    await fetch('https://6867ef69d5933161d70a5740.mockapi.io/users', {
+    await fetch('https://6888894fadf0e59551ba59a0.mockapi.io/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

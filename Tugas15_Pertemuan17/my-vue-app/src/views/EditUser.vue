@@ -63,7 +63,7 @@ const form = ref({
 const isLoading = ref(true);
 
 onMounted(async () => {
-    const res = await fetch(`https://6867ef69d5933161d70a5740.mockapi.io/users/${route.params.id}`);
+    const res = await fetch(`https://6888894fadf0e59551ba59a0.mockapi.io/users/${route.params.id}`);
     const data = await res.json();
     form.value = {
         ...data
@@ -72,7 +72,7 @@ onMounted(async () => {
 });
 
 const updateUser = async () => {
-    await fetch(`https://6867ef69d5933161d70a5740.mockapi.io/users/${route.params.id}`, {
+    await fetch(`https://6888894fadf0e59551ba59a0.mockapi.io/users/${route.params.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
