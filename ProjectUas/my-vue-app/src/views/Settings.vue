@@ -363,7 +363,7 @@
                 <span class="font-medium">Versi Aplikasi:</span> 1.0.0
               </div>
               <div>
-                <span class="font-medium">Developer:</span> Husain Abdul Ghani
+                <span class="font-medium">Developer:</span> Husain Abdul Ghani, Yesa Aradya Pasha
               </div>
               <div>
                 <span class="font-medium">Syarat & Ketentuan:</span>
