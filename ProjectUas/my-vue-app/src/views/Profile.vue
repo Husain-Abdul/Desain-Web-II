@@ -9,7 +9,7 @@
           <div class="flex flex-col items-center">
             <div class="relative">
               <img
-                :src="profile.avatar || 'https://via.placeholder.com/150'"
+                :src="profile.avatar || 'https://imgur.com/zeOIcEj.jpg'"
                 alt="Avatar"
                 class="w-32 h-32 rounded-full object-cover mb-2"
               />
@@ -73,6 +73,7 @@
 
         <!-- Detail dan Skill -->
         <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow space-y-4">
+          <p><strong>Work Colleagues:</strong> {{ profile.workColleagues }}</p>
           <p><strong>Role:</strong> {{ profile.role }}</p>
           <p><strong>Status:</strong> {{ profile.status }}</p>
           <p><strong>Join Date:</strong> {{ formatDate(profile.joinDate) }}</p>
@@ -125,6 +126,7 @@ const defaultProfile = {
   name: 'Husain Abdul Ghani',
   email: 'HusainAbdulGhani@gmail.com',
   bio: 'Frontend Developer, Vue Enthusiast, and Lifelong Learner. Passionate about creating beautiful and functional web applications.',
+  workColleagues: 'Yesa Aradya Pasha',
   role: 'Manager',
   status: 'active',
   joinDate: '2025-07-01',

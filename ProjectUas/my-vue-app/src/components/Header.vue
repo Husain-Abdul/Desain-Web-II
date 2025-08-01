@@ -1,8 +1,14 @@
+<script setup>
+import { inject } from 'vue'
+
+// Ambil data profile dari Layout
+const profile = inject('profile')
+</script>
+
 <template>
   <header class="flex items-center justify-between px-6 py-4 bg-white dark:bg-gray-800 shadow-md">
     <div class="flex items-center space-x-4">
       <button @click="$emit('toggle-sidebar')" class="text-gray-900 dark:text-white">
-        <!-- Ikon Hamburger -->
         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
              viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -11,12 +17,18 @@
       </button>
       <h1 class="text-lg font-semibold">Dashboard</h1>
     </div>
-    <div 
-      class="w-8 h-8 rounded-full bg-blue-500 cursor-pointer hover:bg-blue-600 transition-colors flex items-center justify-center text-white font-semibold"
+
+    <!-- Avatar -->
+    <div
+      class="w-8 h-8 rounded-full overflow-hidden cursor-pointer"
       @click="$router.push('/profile')"
       title="Profile Settings"
     >
-      H
+      <img
+        :src="profile?.avatar || 'https://imgur.com/zeOIcEj.jpg'"
+        alt="Avatar"
+        class="w-full h-full object-cover"
+      />
     </div>
   </header>
 </template>

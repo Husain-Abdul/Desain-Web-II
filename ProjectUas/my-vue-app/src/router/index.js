@@ -3,6 +3,8 @@ import Dashboard from '../views/Dashboard.vue';
 import UserList from '../views/UserList.vue';
 import AddUser from '../views/AddUser.vue';
 import EditUser from '../views/EditUser.vue';
+import Profile from '../views/Profile.vue';
+import Settings from '../views/Settings.vue';
 
 const routes = [
   {
@@ -29,7 +31,12 @@ const routes = [
   {
     path: '/profile',
     name: 'Profile',
-    component: () => import('../views/Profile.vue')
+    component: Profile
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: Settings
   }
 ];
 

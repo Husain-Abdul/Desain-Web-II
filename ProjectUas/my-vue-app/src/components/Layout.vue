@@ -31,7 +31,15 @@ import Header from './Header.vue'
 import Footer from './Footer.vue'
 import DashboardCards from './DashboardCards.vue'
 import { useRoute } from 'vue-router'
-import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted, provide } from 'vue'
+
+const profile = ref({
+  avatar: 'https://imgur.com/zeOIcEj.jpg',
+  name: 'Husain Abdul Ghani',
+  email: 'husainabdulghani@gmail.com'
+})
+
+provide('profile', profile)
 
 const isSidebarOpen = ref(true)
 const isMobile = ref(false)
