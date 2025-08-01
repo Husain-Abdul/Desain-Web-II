@@ -58,10 +58,10 @@
                   />
                 </div>
                 <div>
-                  <label class="block text-sm font-medium mb-1">Nomor Telepon</label>
+                  <label class="block text-sm font-medium mb-1">Roles</label>
                   <input
-                    v-model="settings.profile.phone"
-                    type="tel"
+                    v-model="settings.profile.roles"
+                    type="text"
                     class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-gray-600"
                   />
                 </div>
@@ -259,20 +259,20 @@
                 <input v-model="settings.custom.schoolYear" type="text" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-600" />
               </div>
               <div>
-                <label class="block text-sm font-medium mb-1">Nama Sekolah</label>
+                <label class="block text-sm font-medium mb-1">Nama Perusahaan</label>
                 <input v-model="settings.custom.schoolName" type="text" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-600" />
               </div>
               <div>
-                <label class="block text-sm font-medium mb-1">Alamat Sekolah</label>
+                <label class="block text-sm font-medium mb-1">Alamat Perusahaan</label>
                 <input v-model="settings.custom.schoolAddress" type="text" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-600" />
               </div>
               <div>
-                <label class="block text-sm font-medium mb-1">Logo Sekolah</label>
+                <label class="block text-sm font-medium mb-1">Logo Perusahaan</label>
                 <input type="file" class="w-full" />
               </div>
               <div>
                 <label class="block text-sm font-medium mb-1">Peran & Hak Akses</label>
-                <input v-model="settings.custom.roles" type="text" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-600" placeholder="admin, guru, siswa" />
+                <input v-model="settings.custom.roles" type="text" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-600" placeholder="admin, manager, staff" />
               </div>
               <div>
                 <label class="block text-sm font-medium mb-1">Backup & Restore Data</label>
@@ -280,7 +280,7 @@
                 <button class="ml-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">Restore</button>
               </div>
               <div>
-                <label class="block text-sm font-medium mb-1">Pengaturan Jadwal/Kalender Akademik</label>
+                <label class="block text-sm font-medium mb-1">Pengaturan Jadwal/Kalender</label>
                 <input v-model="settings.custom.academicCalendar" type="text" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-600" />
               </div>
             </div>

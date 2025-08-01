@@ -13,20 +13,7 @@
                 alt="Avatar"
                 class="w-32 h-32 rounded-full object-cover mb-2"
               />
-              <button
-                class="absolute bottom-2 right-2 bg-gray-700 bg-opacity-70 p-1 rounded-full"
-                title="Edit Foto"
-                @click="$refs.avatarInput.click()"
-              >
-                <Pencil class="w-4 h-4 text-white" />
-              </button>
             </div>
-            <input
-              type="file"
-              ref="avatarInput"
-              @change="handleAvatarChange"
-              class="hidden"
-            />
 
             <div class="mt-3 text-center">
               <div class="flex items-center justify-center gap-2">
@@ -41,9 +28,6 @@
                 </template>
                 <template v-else>
                   <h2 class="text-xl font-semibold">{{ profile.name }}</h2>
-                  <button @click="isEditingName = true">
-                    <Pencil class="w-4 h-4 text-blue-500" />
-                  </button>
                 </template>
               </div>
 
