@@ -255,7 +255,7 @@
             <h2 class="text-xl font-semibold mb-4">🛠️ Pengaturan Khusus</h2>
             <div v-if="appType === 'school'" class="space-y-4">
               <div>
-                <label class="block text-sm font-medium mb-1">Tahun Ajaran Aktif</label>
+                <label class="block text-sm font-medium mb-1">Tahun Aktif</label>
                 <input v-model="settings.custom.schoolYear" type="text" class="w-full px-3 py-2 border rounded-lg dark:bg-gray-600" />
               </div>
               <div>
